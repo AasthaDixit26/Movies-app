@@ -4,23 +4,27 @@ import Login from './component/Auth/Login';
 import WatchList from './component/Movies/WatchList';
 import SearchMovies from './component/Movies/SearchMovies';
 import MoviesDetails from './component/Movies/MoviesDetails';
-// import Log
+import LogOut from './component/Auth/LogOut';
+import MainPage from './component/Layout/MainPage';
 
 function App() {
   return (
     <div className="App">
     <h1>heee</h1>
 
-    <Login/>
+    {/* <Login/> */}
 
 
    <Router>
       <Routes>
-        <Route path="/" element={<Navigate to="/login" />}/>
-        <Route path="/login" element={<Login/>}/>
-        <Route path='/searchMovies' element={<SearchMovies/>}/>
+     
+        <Route path="/" element={<Navigate to="/main" />}/>
+         <Route path='/main' element={<MainPage/>}/>
+        {/* <Route path="/login" element={<Login/>}/> */}
+        {/* <Route path='/searchMovies' element={<SearchMovies/>}/>
         <Route path='/watchList' element={<WatchList/>}/>
-        <Route path='/moviesDetails' element={<MoviesDetails/>}/>
+        <Route path='/moviesDetails' element={<MoviesDetails/>}/> */}
+        {/* <Route path='/home' element={<LogOut/>}/> */}
      </Routes>
     </Router>
      
