@@ -3,7 +3,7 @@ import { BrowserRouter as Router,Route,Routes, Navigate } from 'react-router-dom
 import Login from './component/Auth/Login';
 import WatchList from './component/Movies/WatchList';
 import SearchMovies from './component/Movies/SearchMovies';
-import MoviesDetails from './component/Movies/MoviesDetails';
+import MoviesDetails from './component/Movies/MovieCard';
 import LogOut from './component/Auth/LogOut';
 import MainPage from './component/Layout/MainPage';
 
