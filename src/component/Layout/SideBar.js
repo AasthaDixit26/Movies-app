@@ -7,6 +7,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import { Link } from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import MyList from "../Movies/MyList";
 
 
 const SideBar = () => {
@@ -67,7 +68,7 @@ const SideBar = () => {
             marginLeft :'35px',
           }}
         >
-          <Link to="/Movies" style={{ textDecoration: "none", color: "#FF5257" }}>My List</Link>
+          <Link to='/MyList' style={{ textDecoration: "none", color: "#FF5257" }}>My List</Link>
         </Box>
       </Box>
       <CardHeader

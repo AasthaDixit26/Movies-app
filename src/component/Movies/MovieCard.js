@@ -9,7 +9,7 @@ import { Box } from '@mui/material';
 
 const MovieCard = ({ title, released, poster, rating, onAddToMyList }) => {
   return (
-    <Card sx={{ maxWidth: 190, position: 'relative', mb: 2 }}>
+    <Card sx={{ maxWidth: 250, position: 'relative', mb: 2 }}>
       <Box 
         sx={{
           position: 'absolute',

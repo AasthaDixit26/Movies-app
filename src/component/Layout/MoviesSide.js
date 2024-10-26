@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from "react";
 import MovieCard from "../Movies/MovieCard"; 
 import { Box } from "@mui/material";
+import { useDispatch } from "react-redux";
+import {addToWatchList} from '../../store/WatchListSlice';
 
 const MoviesSide = () => {
   const [movies, setMovies] = useState([]); 
+  const dispatch=useDispatch();
+
+  const handleAddMovie=(movie)=>{
+    dispatch(addToWatchList(movie));
+  }
+  
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -34,10 +42,9 @@ const MoviesSide = () => {
           <MovieCard 
             key={movie.imdbID} 
             title={movie.Title} 
-         
-            released={movie.Year}
-            
+            released={movie.Year}  
             poster={movie.Poster} 
+            onAddToMyList={()=>handleAddMovie(movie)}
           />
         ))
       ) : (

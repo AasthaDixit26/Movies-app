@@ -99,9 +99,10 @@ const MainPage = () => {
           <Box
         component="img"
         sx={{
-          height: 200,
-          marginTop: "-40px", 
+          height: 190,
+          marginTop: "-50px", 
           marginLeft: "25px",
+          marginBottom:'-70px',
           align:"center",
         }}
         alt="WatchListLogo"

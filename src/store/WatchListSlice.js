@@ -7,7 +7,7 @@ const watchListSlice=createSlice({
             state.movies.push(action.payload);
         },
         removeFromWatchList:(state,action)=>{
-            state.movies=state.movies.filter(movie=>state.movie.id!==action.payload.id);
+            state.movies=state.movies.filter(movie=>state.movie.imdbID!==action.payload.imdbID);
         }
 
     }

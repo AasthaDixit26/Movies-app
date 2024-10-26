@@ -5,7 +5,7 @@ import watchListSlicereducer from './WatchListSlice';
 const Store=configureStore({
     reducer:{
         auth:authSlicereducer,
-        wacthList:watchListSlicereducer,
+        watchList:watchListSlicereducer,
     }
 });
 
