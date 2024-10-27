@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MovieCard from "../Movies/MovieCard"; 
-import { Box } from "@mui/material";
+import { Box, TextField } from "@mui/material";
 import { useDispatch } from "react-redux";
 import {addToWatchList} from '../../store/WatchListSlice';
 
@@ -11,6 +11,9 @@ const MoviesSide = () => {
   const handleAddMovie=(movie)=>{
     dispatch(addToWatchList(movie));
   }
+
+  const [searchMovies,setSearchMovies]=useState('')
+
   
 
   useEffect(() => {
@@ -35,10 +38,24 @@ const MoviesSide = () => {
     fetchMovies();
   }, []);
 
-  return (
-    <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}> 
-      {movies.length > 0 ? (
-        movies.map((movie) => (
+  const filteredList = movies.filter((movie) =>
+    movie.Title.toLowerCase().includes(searchMovies.toLowerCase())
+  );
+
+
+  return (<>
+   <TextField 
+        label="Search Movies in My List" 
+        variant="outlined" 
+        fullWidth 
+        value={searchMovies}
+        onChange={(e) => setSearchMovies(e.target.value)} 
+        sx={{ mb: 4 }}
+      />
+
+       <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}> 
+      {filteredList.length > 0 ? (
+        filteredList.map((movie) => (
           <MovieCard 
             key={movie.imdbID} 
             title={movie.Title} 
@@ -51,6 +68,8 @@ const MoviesSide = () => {
         <p>Loading movie data.....</p>
       )}
     </Box>
+  </>
+ 
   );
 };
 
