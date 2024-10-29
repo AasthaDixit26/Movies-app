@@ -2,19 +2,17 @@ import './App.css';
 import { BrowserRouter as Router,Route,Routes, Navigate } from 'react-router-dom';
 import Login from './component/Auth/Login';
 import WatchList from './component/Movies/MyList';
-import SearchMovies from './component/Movies/SearchMovies';
 import MoviesDetails from './component/Movies/MovieCard';
 import LogOut from './component/Auth/LogOut';
 import MainPage from './component/Layout/MainPage';
 import MyList from './component/Movies/MyList';
-import { TextField } from '@mui/material';
 import { useState } from 'react';
 
 function App() {
   const [searchMovies,setSearchMovies]=useState('')
   return (
     <div className="App">
-    <h1>heee</h1>
+ 
 
     {/* <Login/> */}
 

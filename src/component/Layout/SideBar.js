@@ -2,21 +2,25 @@ import React from "react";
 import image from "../../assests/WatchList.png";
 import { Box, CardHeader, IconButton, InputAdornment, TextField } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
-import { Col, Row } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 import HomeIcon from '@mui/icons-material/Home';
 import { Link } from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import MyList from "../Movies/MyList";
-
 
 const SideBar = () => {
   return (
     <Col 
       className="sidebar" 
-      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }} 
+      style={{ 
+        display: 'flex', 
+        flexDirection: 'column', 
+        alignItems: 'center', 
+        gap: '20px', 
+        height: '100vh'  // Makes the sidebar full height
+      }} 
     > 
-    <Box
+      <Box
         component="img"
         sx={{
           height: 200,
@@ -38,10 +42,18 @@ const SideBar = () => {
             </InputAdornment>
           ),
         }}
-        sx={{paddingX:'20px' , marginTop: "-80px",marginLeft:"30px", width: '100%' ,marginRight:'20px'}} 
+        sx={{ paddingX: '20px', marginTop: "-80px", marginLeft: "30px", width: '100%', marginRight: '20px' }} 
       />   
-     <Box 
-        sx={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '20px', width: '100%' ,padding:'12px'}}
+
+      <Box 
+        sx={{ 
+          display: 'flex', 
+          flexDirection: 'column', 
+          gap: '10px', 
+          marginTop: '20px', 
+          width: '100%', 
+          padding: '12px'
+        }}
       >
         <Box
           sx={{
@@ -52,11 +64,11 @@ const SideBar = () => {
             borderRadius: '5px',
             padding: '8px 10px',
             marginBottom: '10px',
-            marginLeft :'35px',
+            marginLeft: '35px',
           }}
         >
           <HomeIcon sx={{ color: "#FF5257", marginX: 'px' }} />
-          <Link to="/" style={{ textDecoration: "none", color: "#FF5257",marginLeft:'55px' }}>Home</Link>
+          <Link to="/" style={{ textDecoration: "none", color: "#FF5257", marginLeft: '55px' }}>Home</Link>
         </Box>
 
         <Box
@@ -65,28 +77,30 @@ const SideBar = () => {
             border: '1px solid #FF5257',
             borderRadius: '5px',
             padding: '8px 12px',
-            marginLeft :'35px',
+            marginLeft: '35px',
           }}
         >
           <Link to='/MyList' style={{ textDecoration: "none", color: "#FF5257" }}>My List</Link>
         </Box>
       </Box>
-      <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: "#ff5257" }} aria-label="recipe">
-            R
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon/>
-          </IconButton>
-        }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
-      />
 
-     
+      <Box sx={{ marginTop: '220px', width: '100%' }}> 
+        <CardHeader
+          avatar={
+            <Avatar sx={{ bgcolor: "#ff5257" }} aria-label="recipe">
+              R
+            </Avatar>
+          }
+        
+          title="Shrimp and Chorizo Paella"
+          subheader="September 14, 2016"
+          sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            alignItems: 'center'
+          }}
+        />
+      </Box>
     </Col>
   );
 };
