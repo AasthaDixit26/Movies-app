@@ -1,14 +1,18 @@
 import React from "react";
 import image from "../../assests/WatchList.png";
-import { Box, CardHeader, IconButton, InputAdornment, TextField } from "@mui/material";
+import { Box, CardHeader, InputAdornment, TextField } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 import { Col } from "react-bootstrap";
 import HomeIcon from '@mui/icons-material/Home';
 import { Link } from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import { useSelector } from "react-redux";
 
 const SideBar = () => {
+  const user=useSelector((state)=>state.auth.user);
+  const userEmail = user?.email || 'Guest'; 
+  const avatarAlphabet=userEmail.charAt(0).toUpperCase();
+
   return (
     <Col 
       className="sidebar" 
@@ -17,7 +21,7 @@ const SideBar = () => {
         flexDirection: 'column', 
         alignItems: 'center', 
         gap: '20px', 
-        height: '100vh'  // Makes the sidebar full height
+        height: '100vh'  
       }} 
     > 
       <Box
@@ -88,12 +92,12 @@ const SideBar = () => {
         <CardHeader
           avatar={
             <Avatar sx={{ bgcolor: "#ff5257" }} aria-label="recipe">
-              R
+              {avatarAlphabet}
             </Avatar>
           }
         
-          title="Shrimp and Chorizo Paella"
-          subheader="September 14, 2016"
+          title={userEmail}
+          subheader="User"
           sx={{
             display: 'flex',
             flexDirection: 'row',

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import MovieCard from "../Movies/MovieCard"; 
 import { Box, TextField, Typography, Button, Card, CardMedia, CardContent } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { addToWatchList } from '../../store/WatchListSlice';

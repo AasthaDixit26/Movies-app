@@ -1,29 +1,51 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-// import { login } from "../../store/AuthSlice";
-import {login} from '../../store/AuthSlice';
+import { useNavigate } from "react-router-dom";
+import { login } from '../../store/AuthSlice';
 import { Box, Button, TextField, Typography } from "@mui/material";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleEmail=(e)=>{
+  const handleEmail = (e) => {
     setEmail(e.target.value);
-  }
+  };
+
   const handleLogin = (e) => {
     e.preventDefault();
     if (email) {
-      dispatch(login(email));
-      console.log(email,"hhhhh");
+      dispatch(login({ email }));
       alert("Logged in Successfully");
+      navigate('/main');
     }
   };
+
   return (
-    <>
-      <Box sx={{ width: "300px", margin: "auto", padding: "5px" }}>
+    <Box 
+      sx={{ 
+        display: "flex", 
+        justifyContent: "center", 
+        alignItems: "center", 
+        height: "100vh" 
+      }}
+    >
+      <Box 
+        sx={{ 
+          width: "300px", 
+          padding: "20px", 
+          border: "1px solid #FF5257", 
+          borderRadius: "8px", 
+          boxShadow: "0 4px 8px rgba(0,0,0,0.1)" 
+        }}
+      >
         <form onSubmit={handleLogin}>
-          <Typography variant="h5" gutterBottom>
+          <Typography 
+            variant="h5" 
+            gutterBottom 
+            sx={{ color: "#FF5257", textAlign: "center" }}
+          >
             LOGIN
           </Typography>
           <TextField
@@ -32,18 +54,20 @@ const Login = () => {
             fullWidth
             value={email}
             onChange={handleEmail}
-            sx={{ marginBottom: "5px" }}
+            sx={{ marginBottom: "16px" }}
           />
           <Button
             variant="contained"
             type="submit"
-            sx={{ marginBottom: "5px" }}
+            fullWidth
+            sx={{ backgroundColor: "#FF5257" }}
           >
             Login
           </Button>
         </form>
       </Box>
-    </>
+    </Box>
   );
 };
+
 export default Login;
